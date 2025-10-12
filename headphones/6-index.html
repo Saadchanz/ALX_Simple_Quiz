@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Headphones — Our results (CSS pentagons)</title>
+  <link rel="stylesheet" href="6-styles.css">
+</head>
+<body>
+  <!-- Minimal header reused for context -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="#"><img src="images/logo_headphones.png" alt="Headphones logo"></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#what">what we do</a></li>
+          <li><a href="#results">our results</a></li>
+          <li><a href="#contact">contact us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Reuse "What we do" placeholder so results sits naturally below -->
+    <section class="what-we-do" id="what">
+      <div class="section-container">
+        <h2>What we do...</h2>
+        <p>Short intro text used to position the results section below.</p>
+      </div>
+    </section>
+
+    <!-- OUR RESULTS SECTION (target for this task) -->
+    <section class="results" id="results" aria-labelledby="results-title">
+      <!-- Decorative pentagons (pure CSS shapes). aria-hidden because purely decorative -->
+      <span class="pentagon p-1" aria-hidden="true"></span>
+      <span class="pentagon p-2" aria-hidden="true"></span>
+      <span class="pentagon p-3" aria-hidden="true"></span>
+      <span class="pentagon p-4" aria-hidden="true"></span>
+
+      <div class="container">
+        <h2 id="results-title">Our results speak for themselves</h2>
+        <p class="intro">We pride ourselves on delivering results that make a difference.</p>
+
+        <div class="results-grid">
+          <div class="result-item">
+            <span class="icon" aria-hidden="true">🔊</span>
+            <h3>+2M</h3>
+            <p>Happy Customers</p>
+          </div>
+          <div class="result-item">
+            <span class="icon" aria-hidden="true">🎵</span>
+            <h3>500+</h3>
+            <p>Projects Completed</p>
+          </div>
+          <div class="result-item">
+            <span class="icon" aria-hidden="true">👂</span>
+            <h3>100%</h3>
+            <p>Satisfaction Rate</p>
+          </div>
+          <div class="result-item">
+            <span class="icon" aria-hidden="true">🎧</span>
+            <h3>24/7</h3>
+            <p>Support Availability</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- small footer just to finish page -->
+    <footer class="site-footer">
+      <div class="wrap">© Headphones</div>
+    </footer>
+  </main>
+</body>
+</html>
