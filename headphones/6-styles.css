@@ -1,0 +1,141 @@
+
+/* 6-styles.css - Our results with CSS pentagons */
+
+/* Basic reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
+body { font-family: "Source Sans Pro", Arial, sans-serif; color: #071629; background: #fff; }
+
+/* Generic wrapper */
+.wrap { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+/* Small header (kept simple) */
+.site-header { background: transparent; padding: 20px 0; }
+.site-header .logo img { height: 36px; }
+.main-nav ul { list-style: none; display:flex; gap:18px; align-items:center; }
+.main-nav a { text-decoration:none; color:#071629; font-weight:600; font-size:0.95rem; }
+.main-nav a:hover { color:#FF6565; }
+
+/* WHAT WE DO placeholder */
+.what-we-do { padding: 60px 20px; text-align:center; background: #fff; }
+
+/* RESULTS SECTION */
+.results {
+  position: relative;
+  overflow: hidden;          /* hide overflow of absolutely positioned pentagons */
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #FF8B8B 0%, #FF6565 100%); /* vivid background for contrast */
+  color: #fff;
+}
+
+/* Container centers content and limits width */
+.results .container { max-width: 1000px; margin: 0 auto; position: relative; z-index: 2; text-align: center; }
+
+/* Heading + intro */
+.results h2 { font-size: 2rem; margin-bottom: 12px; }
+.results .intro { max-width: 700px; margin: 0 auto 36px; opacity: .95; }
+
+/* Grid of result items */
+.results-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-around;
+}
+.result-item {
+  flex: 1 1 200px;
+  background: rgba(255,255,255,0.08);
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 180px;
+  backdrop-filter: blur(4px);
+}
+.result-item .icon { display:block; font-size:28px; margin-bottom:12px; }
+.result-item h3 { font-size:1.8rem; margin-bottom:6px; }
+.result-item p { opacity:.95; }
+
+/* ========================= */
+/* PENTAGON SHAPES (no images) */
+/* Each .pentagon is a div/span with clip-path creating a pentagon polygon.
+   We'll style multiple pentagons with different sizes, colors and positions
+   and keep them aria-hidden since they are decorative.
+*/
+/* Base pentagon style */
+.pentagon {
+  position: absolute;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  opacity: 0.12;
+  transform-origin: center;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.15));
+  z-index: 1;
+}
+
+/* Individual pentagon instances: sizes, colors, positions */
+
+/* large left-bottom pentagon */
+.p-1 {
+  width: 380px;
+  height: 380px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.28), rgba(255,255,255,0.08));
+  left: -80px;
+  bottom: -60px;
+  transform: rotate(-18deg);
+  opacity: 0.14;
+}
+
+/* medium top-right pentagon */
+.p-2 {
+  width: 220px;
+  height: 220px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,255,255,0.06));
+  right: -30px;
+  top: -50px;
+  transform: rotate(12deg);
+  opacity: 0.12;
+}
+
+/* small center slightly above grid */
+.p-3 {
+  width: 140px;
+  height: 140px;
+  background: rgba(255,255,255,0.18);
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%) rotate(6deg);
+  opacity: 0.14;
+}
+
+/* small left-top accent */
+.p-4 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.22), rgba(255,255,255,0.08));
+  left: 10%;
+  top: -20px;
+  transform: rotate(-24deg);
+  opacity: 0.1;
+}
+
+/* Make sure pentagons don't block pointer events (decorative only) */
+.pentagon { pointer-events: none; }
+
+/* Responsive: tablet */
+@media (max-width: 768px) {
+  .results { padding: 60px 18px; }
+  .p-1 { width: 300px; height: 300px; left: -100px; bottom: -100px; }
+  .p-2 { width: 160px; height: 160px; right: -40px; top: -40px; }
+  .p-3 { width: 120px; height: 120px; top: 28%; }
+  .results h2 { font-size:1.6rem; }
+}
+
+/* Responsive: mobile (<=480px) - remove some pentagons to reduce clutter */
+@media (max-width: 480px) {
+  .results { padding: 40px 14px; background: linear-gradient(180deg,#FF7E7E,#FF6565); }
+  .results-grid { gap: 18px; flex-direction: column; align-items: center; }
+  .p-1 { display: none; }
+  .p-2 { display: none; }
+  .p-3 { width: 90px; height: 90px; top: 20%; }
+  .p-4 { display: none; }
+  .result-item { width: 100%; max-width: 360px; }
+  .results h2 { font-size:1.25rem; }
+}
